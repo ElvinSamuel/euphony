@@ -9,4 +9,6 @@ http.createServer(function(req, res) {
 		res.write(data); // serving that test file 
 		res.end();
 	});
-}).listen(process.env.PORT);
+}).listen(process.env.PORT, function(){
+	console.log(`Euphony App Up And Running On Port ${process.env.PORT}`);	
+});
