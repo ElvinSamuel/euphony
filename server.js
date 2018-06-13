@@ -1,8 +1,12 @@
 var http = require('http');
+var fs = require('fs'); // basic file server
+
 
 // Basic NodeJS Server
 http.createServer(function(req, res) {
-	res.writeHead(200, {'Content-Type': 'text/html'});
-	res.write('Hello World!'); // just checking that it works
-	res.end();
+	fs.readFile('testFile.html', function(err, data) {
+		res.writeHead(200, {'Content-Type': 'text/html'});
+		res.write(data); // serving that test file 
+		res.end();
+	});
 }).listen(process.env.PORT);
